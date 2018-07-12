@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class QuizService {
+  //All your quiz logic exists here, Define your vairable here
+  description = "I am a string inside of the service!";
 
   constructor() { }
 }

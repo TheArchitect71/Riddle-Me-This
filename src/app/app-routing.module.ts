@@ -20,7 +20,7 @@ const routes: Routes = [
     component: ResultComponent
   },
   {
-    // DEFUALT PATHING
+    // DEFAULT PATHING
     path: "",
     redirectTo: "/",
     pathMatch: "full"
