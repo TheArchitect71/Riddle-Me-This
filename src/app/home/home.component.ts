@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
   constructor(private quiz: QuizService) {
     this.quiz = quiz;
     // shows description defined in the QuizService
-    console.log(this.quiz.description);
    }
     
   ngOnInit() {
