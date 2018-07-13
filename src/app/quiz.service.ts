@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
+  constructor(private router: Router) {
+    this.router = router;
+   }
   // All your quiz logic exists here, Define your vairable here
-
+  
 selectAnswer() {
   
 }
@@ -137,5 +141,4 @@ selectAnswer() {
       },
   ];
 
-  constructor() { }
 }
