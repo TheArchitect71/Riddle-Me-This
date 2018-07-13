@@ -1,0 +1,10 @@
+.begin {
+    margin-top: 450px;
+    margin-left: 630px;
+}
+
+.body {
+    height: 800px;
+    width: 100%;
+    border: 1px solid white;
+}
