@@ -1,3 +1,13 @@
-<p>
-  question works!
-</p>
+<div>
+  <h1>Riddle Me This...</h1>
+</div> 
+<div>
+  <h2>{{ this.quiz.questions[0].title }}</h2>
+  <div class="container">
+      <div class="row">
+          <div class="col button-wraper" *ngFor="let choice of this.quiz.questions[0].choices">
+            <div><button class="speech-bubble btn-size" (click)="selectAnswer()">{{ choice.answer }}</button></div>
+          </div>
+      </div>
+  </div>
+</div>
