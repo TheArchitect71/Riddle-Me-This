@@ -1,3 +1,11 @@
+.background {
+  background-image: url("./images/background.jpg");
+  min-height: 100vh;
+}
+.blackText {
+    color: black;
+}
+
 h1 {
     text-align: center;
     color: white;
@@ -57,8 +65,14 @@ h2 {
     margin-left: 30%;
     margin-right: auto;
     font-size: 1.2em;
+    color: black;
 }
 
-/* .button-wraper {
-    border: 5px solid purple;
-} */
+p {
+  text-align: center;
+  color: white;
+}
+
+input {
+    color: white;
+}
