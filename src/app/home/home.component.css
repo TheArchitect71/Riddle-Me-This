@@ -12,11 +12,7 @@
 .button-container {
     height: 800px;
      width: 750px;
-     border: 1px solid yellowgreen;
-     
-     
-               
-
+     /* border: 1px solid yellowgreen; */
 }
 
 .button-row {
@@ -36,12 +32,3 @@
     margin-top: 100px;
     margin-left: 90px;
 }
-.background { 
-
-
-    background: url("/assets/background2.jpg") no-repeat center center fixed;  
-       -webkit-background-size: cover; 
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
