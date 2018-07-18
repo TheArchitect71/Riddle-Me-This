@@ -1,3 +1,29 @@
-<p>
-  result works!
-</p>
+<section>
+  <div class="container-fluid ">
+    <div class="row mt-5">
+      <div class="col-lg-12 text-center">
+        <!-- <div class="jumbotron jumbotron-fluid"> -->
+
+        <!-- TITLE -->
+        <h1 class="display-4">{{ title }}</h1>
+
+        <!-- CONVEY USER INSTRUCTIONS  -->
+        <p>{{ paragraph }}
+          <br> {{ author }}</p>
+        <hr class="my-4">
+
+        <!-- THE RESULT -->
+        <p>You are</p>
+        <div class="row">
+          <div class="col" *ngFor="let result of quiz.results" >
+            <!-- DISPLAY  ARRAY RESULT -->
+            <p *ngiF>{{ result.result }}</p>
+          </div>
+        </div>
+
+        <!-- The BUTTON -->
+        <button class="btn btn-primary btn-lg" href="#" role="button">Start Again?</button>
+      </div>
+    </div>
+  </div>
+</section>

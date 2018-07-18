@@ -1,13 +1,61 @@
-<div>
+<div class="background">
   <h1>Riddle Me This...</h1>
-</div> 
-<div>
-  <h2>{{ this.quiz.questions[0].title }}</h2>
+  <!-- <h2>{{ quiz.questions[0].title }}</h2> -->
   <div class="container">
-      <div class="row">
-          <div class="col button-wraper" *ngFor="let choice of this.quiz.questions[0].choices">
+    <!-- <div class="row">
+          <div class="col button-wraper" *ngFor="let choice of quiz.questions[0].choices">
             <div><button class="speech-bubble btn-size" (click)="selectAnswer()">{{ choice.answer }}</button></div>
           </div>
+      </div> -->
+
+    <!-- <option *ngFor='let element of category' [selected]="element === nameDevice" -->
+
+    <!-- // div that checks what answer they picked for their first question -->
+    <!-- <div class="blackText"> -->
+    <!-- <p class="blackText" *ngFor="let student of quiz.students">
+          <span *ngIf="student.morality === false">
+            {{ student.name }} {{ student.age }}
+          </span>
+        </p> -->
+
+    <div>
+      <h2> Would you rather...</h2>
+      <p>
+        Die as a Hero
+        <input type="radio" [value]="true" [(ngModel)]="quiz.questions[0].selectAnswer">
+      </p>
+      <p>
+        Live long enough to become the Villain
+        <input type="radio" [value]="false" [(ngModel)]="quiz.questions[0].selectAnswer">
+      </p>
+
+    </div>
+
+    <div *ngFor='let q of quiz.questions | slice:1 ; let i = index'>
+
+      <div *ngIf="quiz.questions[0].selectAnswer == true && i % 2 == 0 && quiz.questions[0].selectAnswer !== '' ">
+        <h2>{{ q.title }}</h2>
+
+        <div *ngFor='let a of q.choices'>
+          <p>{{ a.answer }}
+            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="a.answer">
+          </p>
+        </div>
       </div>
+
+      <div *ngIf="quiz.questions[0].selectAnswer == false && i % 2 == 1 && quiz.questions[0].selectAnswer !== '' ">
+        <h2>{{ q.title }}</h2>
+
+        <div *ngFor='let a of q.choices'>
+          <p>{{ a.answer }}
+            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="a.answer">
+          </p>
+        </div>
+      </div>
+      
+    </div>
+    <div>
+      <button class="btn-position btn btn-success border border-success" [routerLink]="['/result']">Get Results</button>
+    </div>
   </div>
 </div>
