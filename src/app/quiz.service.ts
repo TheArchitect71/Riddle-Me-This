@@ -13,29 +13,34 @@ export class QuizService {
   constructor(private router: Router) {
     this.router = router;
    }
+
+
+   test(q) {
+    console.log(q);
+   }
   // All your quiz logic exists here, Define your vairable here
 
   // selectAnswer() {
   //
   // }
 
-   students = [
-     {
-       name: 'Josue',
-       age: 25,
-       morality: false
-     },
-     {
-       name: 'Erick',
-       age: 20,
-       morality: false
-     },
-     {
-       name: 'Michael',
-       age: 35,
-       morality: true
-     }
-   ];
+  //  students = [
+  //    {
+  //      name: 'Josue',
+  //      age: 25,
+  //      morality: false
+  //    },
+  //    {
+  //      name: 'Erick',
+  //      age: 20,
+  //      morality: false
+  //    },
+  //    {
+  //      name: 'Michael',
+  //      age: 35,
+  //      morality: true
+  //    }
+  //  ];
 
 
 
@@ -66,7 +71,8 @@ export class QuizService {
         choices: [
           {
           answer: 'The 3rd planet in the Solar System',
-          value: 'A'
+          value: 'A',
+          morality: true
           },
           {
             answer: 'In an Urban Area',

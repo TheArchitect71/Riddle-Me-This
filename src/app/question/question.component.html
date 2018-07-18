@@ -32,12 +32,13 @@
     </div>
 
     <div *ngFor='let q of quiz.questions | slice:1 ; let i = index'>
+
       <div *ngIf="quiz.questions[0].selectAnswer == true && i % 2 == 0 && quiz.questions[0].selectAnswer !== '' ">
         <h2>{{ q.title }}</h2>
 
         <div *ngFor='let a of q.choices'>
           <p>{{ a.answer }}
-            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer">
+            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="a.answer">
           </p>
         </div>
       </div>
@@ -47,11 +48,14 @@
 
         <div *ngFor='let a of q.choices'>
           <p>{{ a.answer }}
-            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer">
+            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="a.answer">
           </p>
         </div>
       </div>
-
+      
+    </div>
+    <div>
+      <button class="btn-position btn btn-success border border-success" [routerLink]="['/result']">Get Results</button>
     </div>
   </div>
 </div>
