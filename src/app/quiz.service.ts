@@ -17,7 +17,8 @@ export class QuizService {
   letterETally = 0;
   letterFTally = 0;
 
-  tallyray = [this.letterATally, this.letterBTally, this.letterCTally, this.letterDTally, this.letterETally, this.letterFTally];
+  tallyray: any;
+  finalResult: any;
 
   finalCharacter: Object;
 
@@ -25,7 +26,12 @@ export class QuizService {
   constructor(private router: Router) {
     this.router = router;
   }
-
+  reset() {
+    console.log(this.tallyray = []);
+    for (let i = 0; i < this.questions.length; i++) {
+      this.questions[i].selectAnswer = null;
+    }
+  }
   tallyResult() {
     for (let i = 1; i < this.questions.length; i++) {
       //Tallies the properties
@@ -39,22 +45,24 @@ export class QuizService {
         this.letterDTally++;
       } else if (this.questions[i].selectAnswer == "E") {
         this.letterETally++;
-      } else if (this.questions[i].selectAnswer == "F"){
+      } else if (this.questions[i].selectAnswer == "F") {
         this.letterFTally++;
       }
-
-      //Finds the max and where the max is
-      let topVal = this.tallyray[0];
-      let indexx = 0;
-      for (let i = 1; i<this.tallyray.length; i++){
-        if (topVal < this.tallyray[i]){
-          topVal = this.tallyray[i];
-          indexx = i;
-        }
-      }
-      
-      this.results[indexx]
     }
+
+    //Finds the max and where the max is
+
+    this.tallyray = [this.letterATally, this.letterBTally, this.letterCTally, this.letterDTally, this.letterETally, this.letterFTally];
+
+    let topVal = Math.max(...this.tallyray);
+
+    let finalIndex = this.tallyray.indexOf(topVal);
+
+    this.finalResult = this.results[finalIndex];
+
+    this.router.navigate(['/result']);
+
+
   }
 
   results = [

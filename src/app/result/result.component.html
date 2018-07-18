@@ -17,13 +17,13 @@
         <div class="row">
           <div class="col">
             <!-- DISPLAY  ARRAY RESULT -->
-            <p>{{ results.title }}</p>
-            <p>{{ results.result }}</p>
+            <p>{{ quiz.finalResult.title }}</p>
+            <p>{{ quiz.finalResult.result }}</p>
           </div>
         </div>
 
         <!-- The BUTTON -->
-        <button class="btn btn-primary btn-lg" href="#" role="button" [routerLink]="['/']">Start Again?</button>
+        <button class="btn btn-primary btn-lg" href="#" role="button" [routerLink]="['/']" (click)="quiz.reset()">Start Again?</button>
       </div>
     </div>
   </div>
