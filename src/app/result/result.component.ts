@@ -17,7 +17,7 @@ export class ResultComponent implements OnInit {
   author: string = "― Norton Juster, The Phantom Tollbooth ";
 
   // STRING DATA FOR RESULT
-  answer: string = "Superman";
+  // answer: string = "Superman";
 
   constructor(private quiz: QuizService) {
     this.quiz = quiz;

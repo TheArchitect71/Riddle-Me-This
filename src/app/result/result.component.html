@@ -1,6 +1,6 @@
 <section>
-  <div class="container-fluid noManZone">
-    <div class="row">
+  <div class="container-fluid ">
+    <div class="row mt-5">
       <div class="col-lg-12 text-center">
         <!-- <div class="jumbotron jumbotron-fluid"> -->
 
@@ -8,12 +8,18 @@
         <h1 class="display-4">{{ title }}</h1>
 
         <!-- CONVEY USER INSTRUCTIONS  -->
-        <p class="lead">{{ paragraph }}
+        <p>{{ paragraph }}
           <br> {{ author }}</p>
         <hr class="my-4">
 
         <!-- THE RESULT -->
-        <h2 class="mb-5">Result: {{ answer }}</h2>
+        <p>You are</p>
+        <div class="row">
+          <div class="col" *ngFor="let result of quiz.results" >
+            <!-- DISPLAY  ARRAY RESULT -->
+            <p *ngiF>{{ result.result }}</p>
+          </div>
+        </div>
 
         <!-- The BUTTON -->
         <button class="btn btn-primary btn-lg" href="#" role="button">Start Again?</button>
