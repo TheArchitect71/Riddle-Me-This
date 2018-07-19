@@ -19,7 +19,7 @@ export class ResultComponent implements OnInit {
   // STRING DATA FOR RESULT
   // answer: string = "Superman";
 
-  constructor(private quiz: QuizService) {
+  constructor(public quiz: QuizService) {
     this.quiz = quiz;
     // shows description defined in the QuizService
    }
