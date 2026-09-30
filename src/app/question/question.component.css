@@ -19,13 +19,7 @@ h2 {
     padding-top: 65px;
     text-shadow: 4px 4px black;
 }
-.btn {
-    margin-left: 50%;
-    margin-right: 50%;
-    padding: 0;
-    /* border: 5px solid yellow; */
-    display: inline-block;
-}
+.btn { display:block; margin:32px auto; padding:12px 24px; }
 
 .btn-container {
     /* border: 5px solid blue; */
