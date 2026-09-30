@@ -1,21 +1,55 @@
 # Riddle Me This
 
-Angular22 migration of the existing six-outcome hero/villain quiz. Quiz content and bundled backgrounds remain unchanged. Replaying now clears scores; stale answers from the other morality branch no longer affect results. Direct result navigation without answers no longer crashes.
+A branching hero-or-villain personality quiz. Answer questions to discover one of six comic-book character outcomes, then replay to try another path.
 
-## Run
+## What you can do
+
+- Start a quiz and follow the hero or villain question branch.
+- See a result for Superman, Batman, Wonder Woman, Lex Luther, Joker, or Cheetah.
+- Replay with a fresh score.
+
+## Preview
+
+![A branching hero-or-villain personality quiz](docs/screenshots/desktop.png)
+
+Captured from the running application on September 30, 2026. Any sample records shown are demonstration or isolated test data, not data included with a fresh installation.
+
+<details>
+<summary>Mobile view</summary>
+
+![Mobile a branching hero-or-villain personality quiz](docs/screenshots/mobile.png)
+
+</details>
+
+<details>
+<summary>Quiz result</summary>
+
+![Example character result](docs/screenshots/result.png)
+
+</details>
+
+## Run locally
+
+Use the Node version in `.nvmrc` (currently 26.10.0) and npm. Run these commands from the repository root.
 
 ```sh
-nvm use
+nvm use  # if you manage Node with nvm
 npm ci
 npm start
 ```
 
-Foreground http://127.0.0.1:4200; Ctrl+C to stop. Assets are bundled; no remote fonts or services. Production hosts must serve index.html for Angular routes.
+Open [http://127.0.0.1:4200](http://127.0.0.1:4200). Keep the server in the foreground; stop it with **Ctrl+C**.
 
-## Validate
+## Current scope
 
-`npm run build`, `npm run typecheck`, `npm test -- --browsers=ChromeHeadless`, `npm audit`. Set CHROME_BIN if Chrome is outside /Applications.
+This is a local quiz with bundled backgrounds, no account, and no persistent history. A static production host must serve `index.html` for Angular routes.
 
-Angular/core/CLI/build22.2.0, Bootstrap5.3.8/Popper2.11.8, Node26.10.0, RxJS7.8.2/Zone0.16.3. TS6.0.3 held by Angular>=6<6.1; Jasmine6.3/types6 held because Jasmine7 read-only globals fail with zone-testing0.16.3. Nativebuilder and eager modulecomponents/Zoneprovider preserve routing/forms. ObsoleteAngularHTTP/compilerprivateimport/jQuery/oldtooling removed. [Official Angular compatibility](https://angular.dev/reference/versions).
+## Development
 
-SevenChromium tests pass, including sixoutcomes/idempotentscoring/branchisolation/replay/reset. ProductionPlaywrightdesktop1280x800/mobile390x844 passed all six outcomes (Superman,Batman,WonderWoman,LexLuther,Joker,Cheetah), replay, emptyresultnavigation, nohorizontaloverflow/runtimeerrors/externalrequests. Home layout now scales to phones while retaining background/title/startbutton. Browserplugin absent; existingPlaywright/Chromium148 fallback. Evidence/source snapshots outside repo in Codex/mission folders. Other browsers untested; originaltiefirst-index/emptyanswerdefault behavior retained.
+```sh
+npm run build
+npm run typecheck
+npm test -- --browsers=ChromeHeadless
+```
+
+Browser tests require Chrome or Chromium; set `CHROME_BIN` if it is outside the standard installation path. Angular 22 currently requires TypeScript 6.0.x. The Jasmine 6 test dependencies are retained for compatibility with Zone.js.
