@@ -22,33 +22,33 @@
       <h2> Would you rather...</h2>
       <p>
         Die as a Hero
-        <input type="radio" [value]="true" [(ngModel)]="quiz.questions[0].selectAnswer">
+        <input type="radio" name="morality" aria-label="Die as a Hero" [value]="true" [(ngModel)]="quiz.questions[0].selectAnswer">
       </p>
       <p>
         Live long enough to become the Villain
-        <input type="radio" [value]="false" [(ngModel)]="quiz.questions[0].selectAnswer">
+        <input type="radio" name="morality" aria-label="Live long enough to become the Villain" [value]="false" [(ngModel)]="quiz.questions[0].selectAnswer">
       </p>
 
     </div>
 
     <div *ngFor='let q of quiz.questions | slice:1 ; let i = index'>
 
-      <div *ngIf="quiz.questions[0].selectAnswer == true && i % 2 == 0 && quiz.questions[0].selectAnswer !== '' ">
+      <div *ngIf="quiz.questions[0].selectAnswer === true && i % 2 == 0 ">
         <h2>{{ q.title }}</h2>
 
         <div *ngFor='let a of q.choices'>
           <p>{{ a.answer }}
-            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="a.answer">
+            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="'question-' + q.id" [attr.aria-label]="a.answer">
           </p>
         </div>
       </div>
 
-      <div *ngIf="quiz.questions[0].selectAnswer == false && i % 2 == 1 && quiz.questions[0].selectAnswer !== '' ">
+      <div *ngIf="quiz.questions[0].selectAnswer === false && i % 2 == 1 ">
         <h2>{{ q.title }}</h2>
 
         <div *ngFor='let a of q.choices'>
           <p>{{ a.answer }}
-            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="a.answer">
+            <input [value]="a.value" type="radio" [(ngModel)]="q.selectAnswer" [name]="'question-' + q.id" [attr.aria-label]="a.answer">
           </p>
         </div>
       </div>

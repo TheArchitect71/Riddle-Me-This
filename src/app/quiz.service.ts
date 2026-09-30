@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { Router } from '@angular/router';
 
 
@@ -27,13 +26,16 @@ export class QuizService {
     this.router = router;
   }
   reset() {
-    console.log(this.tallyray = []);
+    this.tallyray = []; this.finalResult = undefined; this.clearTallies();
     for (let i = 0; i < this.questions.length; i++) {
       this.questions[i].selectAnswer = null;
     }
   }
+  private clearTallies() { this.letterATally=this.letterBTally=this.letterCTally=this.letterDTally=this.letterETally=this.letterFTally=0; }
   tallyResult() {
+    this.clearTallies();
     for (let i = 1; i < this.questions.length; i++) {
+      if (this.questions[i].morality !== this.questions[0].selectAnswer) continue;
       //Tallies the properties
       if (this.questions[i].selectAnswer == "A") {
         this.letterATally++;
@@ -102,7 +104,7 @@ export class QuizService {
 
 
 
-  questions = [
+  questions: {id:number;morality?:boolean;title:string;selectAnswer:string|boolean|null;choices:{answer:string;value:string|boolean;morality?:boolean}[]}[] = [
     {
       id: 1,
       title: 'Would you rather...',

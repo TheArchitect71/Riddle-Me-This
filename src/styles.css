@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 
 body, h1, h2, h3  {
-    font-family: 'Rock Salt', cursive;
+    font-family: system-ui, sans-serif;
   color: white;
 }
 .whiteText {
@@ -21,3 +20,5 @@ body, h1, h2, h3  {
     background-repeat: no-repeat;
     background-size: cover;
 }
+body { margin:0; background-color:#142223; }
+button { white-space:normal; }
